@@ -122,7 +122,7 @@
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
             //想说的话
-            S.UI.simulate("亲爱的|生日快乐哟|#countdown 3|#rectangle 15x15|#circle 12 |#time");
+            S.UI.simulate("亲爱的|生日快乐哟|#countdown 5|#rectangle 15x15|#circle 60|#time");
             S.Drawing.loop(function () {
                 S.Shape.render();
             });
@@ -178,7 +178,7 @@
         var interval,
             currentAction,
             time,
-            maxShapeSize = 30,
+            maxShapeSize = 1000,
             sequence = [],
             cmd = '#';
         function formatTime(date) {
