@@ -86,12 +86,11 @@
 </head>
 
 <body>
+<!--&lt;!&ndash;更改为你女朋友的头像&ndash;&gt;-->
 <div class="cs">
     <img src="http://wx1.sinaimg.cn/large/006gFOhdly1fr0hdrzlolj30b40b4dg7.jpg" id="logo">
 </div>
-
 <canvas class="canvas" width="1820" height="905"></canvas>
-
 <p class="text" style="color: #ed3073;">
     世界已经有你
     <br/>
@@ -100,7 +99,7 @@
 <script language="javascript">
     function show_date_time() {
         window.setTimeout("show_date_time()", 1000);
-        BirthDay = new Date("01/29/1999 00:00:00");//这个日期是可以修改的
+        BirthDay = new Date("09/21/1992 00:00:00");//这个日期是可以修改的
         today = new Date();
         timeold = (today.getTime() - BirthDay.getTime());
         sectimeold = timeold / 1000
@@ -123,7 +122,7 @@
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
             //想说的话
-            S.UI.simulate("亲爱的|生日快乐哟|#countdown 3|#rectangle 30x30|#circle 12 |#time");
+            S.UI.simulate("亲爱的|生日快乐哟|#countdown 3|#rectangle 15x15|#circle 12 |#time");
             S.Drawing.loop(function () {
                 S.Shape.render();
             });
@@ -179,8 +178,7 @@
         var interval,
             currentAction,
             time,
-            <!--maxShapeSize = 30,-->
-maxShapeSize = 10,
+            maxShapeSize = 30,
             sequence = [],
             cmd = '#';
         function formatTime(date) {
@@ -383,10 +381,9 @@ maxShapeSize = 10,
     };
     S.ShapeBuilder = (function () {
         var gap = 13,
-
             shapeCanvas = document.createElement('canvas'),
             shapeContext = shapeCanvas.getContext('2d'),
-            fontSize =500,
+            fontSize = 500,
             fontFamily = 'Avenir, Helvetica Neue, Helvetica, Arial, sans-serif';
         function fit() {
             shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
