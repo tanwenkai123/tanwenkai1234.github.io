@@ -120,7 +120,7 @@
         init: function () {
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
-            S.UI.simulate("亲爱的|生日快乐哟|#countdown 3|#rectangle 15x15|#circle 12 |#time");
+            S.UI.simulate("亲爱的| 生日快乐哟 |#countdown 3|#rectangle 15x15|#circle 12 |#time");
             S.Drawing.loop(function () {
                 S.Shape.render();
             });
@@ -250,7 +250,7 @@
                                 t = formatTime(new Date());
                                 if (t !== time) {
                                     time = t;
-                                    S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐'));
+                                    S.Shape.switchShape(S.ShapeBuilder.letter(' 老婆生日快乐 '));
                                 }
                             }, 1000);
                         }
