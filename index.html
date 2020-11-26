@@ -457,7 +457,7 @@
             },
             letter: function (l) {
                 var s = 0;
-//                 setFontSize(fontSize);
+                setFontSize(fontSize);
                 s = Math.min(fontSize,
                     (shapeCanvas.width / shapeContext.measureText(l).width) * 0.8 * fontSize,
                     (shapeCanvas.height / fontSize) * (isNumber(l) ? 1 : 0.45) * fontSize);
