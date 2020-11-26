@@ -121,9 +121,9 @@
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
             S.UI.simulate("亲爱的|生日快乐哟|#countdown 5 |#time");
-//             S.Drawing.loop(function () {
+            S.Drawing.loop(function () {
                 S.Shape.render();
-//             });
+            });
         }
     };
     S.Drawing = (function () {
@@ -457,7 +457,7 @@
             },
             letter: function (l) {
                 var s = 0;
-                setFontSize(fontSize);
+//                 setFontSize(fontSize);
                 s = Math.min(fontSize,
                     (shapeCanvas.width / shapeContext.measureText(l).width) * 0.8 * fontSize,
                     (shapeCanvas.height / fontSize) * (isNumber(l) ? 1 : 0.45) * fontSize);
