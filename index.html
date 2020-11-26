@@ -166,7 +166,7 @@
             drawCircle: function (p, c) {
                 context.fillStyle = c.render();
                 context.beginPath();
-                context.arc(p.x, p.y, p.z, 0, 1 * Math.PI, true);
+                context.arc(p.x, p.y, 1, 0, 2 * Math.PI, true);
                 context.closePath();
                 context.fill();
             }
