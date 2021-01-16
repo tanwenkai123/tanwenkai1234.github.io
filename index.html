@@ -125,6 +125,7 @@
         }
     var S = {
         init: function () {
+            $('.cs').attr("disabled", "disabled");
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
             S.UI.simulate("亲爱的|生日快乐哟|#countdown 5 |#time");
@@ -580,10 +581,9 @@
             }
         };
     }());
-     $('.cs').attr("disabled", "disabled");
+     
     S.init();
-    //恢复点击事件 用户点击时又会被触发
- $('.cs').removeAttr("disabled");
+    
 </script>
 <!--//音乐可改-->
 <audio autoplay="autoplay" loop="loop">
