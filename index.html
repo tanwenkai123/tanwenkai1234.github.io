@@ -117,7 +117,11 @@
 </script>
 <script>
         function alterStr() {
-             S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐'),true);
+            if(Math.random()>0.5){
+             S.Shape.switchShape(S.ShapeBuilder.letter('我 爱 你'),true);
+                }else{
+                    S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐！'),true);
+                    }
         }
     var S = {
         init: function () {
@@ -253,7 +257,7 @@
                                 t = formatTime(new Date());
                                 if (t !== time) {
                                     time = t;
-                                    S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐'));
+                                    S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐!！'));
                                 }
                             }, 2000);
                         }
