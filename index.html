@@ -260,6 +260,8 @@
                                     S.Shape.switchShape(S.ShapeBuilder.letter('老婆生日快乐'));
                                 }
                             }, 3000);
+                             //恢复点击事件 用户点击时又会被触发
+                            $('.cs').removeAttr("disabled");
                         }
                         break;
                     default:
@@ -578,7 +580,10 @@
             }
         };
     }());
+     $('.cs').attr("disabled", "disabled");
     S.init();
+    //恢复点击事件 用户点击时又会被触发
+ $('.cs').removeAttr("disabled");
 </script>
 <!--//音乐可改-->
 <audio autoplay="autoplay" loop="loop">
