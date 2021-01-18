@@ -86,7 +86,7 @@
 </head>
 
 <body>
-<div id="cs" class="cs" onclick="alterStr()">
+<div id="ccs" class="cs" onclick="alterStr()">
     <img src="image/tx.jpg" id="logo">
 </div>
 <canvas class="canvas" width="100%" height="905"></canvas>
@@ -125,7 +125,7 @@
     }
     var S = {
         init: function () {
-            document.getElementById('cs').setAttribute("disabled", "disabled");
+            document.getElementById('ccs').setAttribute("disabled", "disabled");
             S.Drawing.init('.canvas');
             document.body.classList.add('body--ready');
             S.UI.simulate("亲爱的|生日快乐哟|#countdown 5 |#time");
@@ -262,7 +262,7 @@
                                 }
                             }, 3000);
                             //恢复点击事件 用户点击时又会被触发
-//                             document.getElementById('cs').removeAttribute("disabled");
+                            //  document.getElementById('ccs').removeAttribute("disabled");
                         }
                         break;
                     default:
