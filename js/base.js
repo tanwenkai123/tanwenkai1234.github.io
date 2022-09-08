@@ -83,23 +83,7 @@
             this.isAnimation = true;
             this.cvsele.style.display = "block";
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-            if (navigator.mediaDevices) {
-                navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: "environment" }
-                }).then(stream => {
-                    this.video.srcObject = stream;
-                    this.video.setAttribute('playsinline', true);
-                    this.video.setAttribute('webkit-playsinline', true);
-                    this.video.addEventListener('loadedmetadata', () => {
-                        this.video.play();
-                        this.untie();
-                    });
-                }).catch(error => {
-                    this.cance();
-                    alert('对不起：未识别到扫描设备!');
-                    // console.error(error.name + "：" + error.message + "，" + error.constraint);
-                });
-            } else if (navigator.getUserMedia) {
+            if (navigator.getUserMedia) {
                 navigator.getUserMedia({
                     video: { facingMode: "environment" }
                 }, (stream) => {
