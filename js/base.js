@@ -52,7 +52,7 @@
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
-                    document.querySelector('#imgurl').src = img;
+
                     const obj = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
                     if (obj) {
                         const loc = obj.location;
@@ -64,6 +64,7 @@
                             this.audio.play();
                             this.cance();
                             this.seuccess(obj);
+                            // document.querySelector('#imgurl').src = this.cvsele.toDataURL("image/png");
                         }
                     } else {
                         this.error("识别失败，请检查二维码是否正确！");
@@ -83,7 +84,23 @@
             this.isAnimation = true;
             this.cvsele.style.display = "block";
             navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-            if (navigator.getUserMedia) {
+            if (navigator.mediaDevices) {
+                navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: "environment" }
+                }).then(stream => {
+                    this.video.srcObject = stream;
+                    this.video.setAttribute('playsinline', true);
+                    this.video.setAttribute('webkit-playsinline', true);
+                    this.video.addEventListener('loadedmetadata', () => {
+                        this.video.play();
+                        this.untie();
+                    });
+                }).catch(error => {
+                    this.cance();
+                    alert('对不起：未识别到扫描设备!');
+                    // console.error(error.name + "：" + error.message + "，" + error.constraint);
+                });
+            } else if (navigator.getUserMedia) {
                 navigator.getUserMedia({
                     video: { facingMode: "environment" }
                 }, (stream) => {
@@ -110,7 +127,7 @@
         };
 
         upload() {
-            this.cance();
+            // this.cance();
             const file = this.file.files[0];
             const createObjectURL = window.createObjectURL || window.URL.createObjectURL || window.webkitURL.createObjectUR;
 
