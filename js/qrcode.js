@@ -278,7 +278,13 @@
        this._elImage.style.display = "block";
        this._elCanvas.style.display = "none";			
      }
-     
+     function _onMakeImage2() {
+       const img=document.querySelector('#imgurl')
+       img.src = this._elCanvas.toDataURL("image/png");
+       this._elImage.style.display = "block";
+       this._elCanvas.style.display = "none";
+     }
+
      // Android 2.1 bug workaround
      // http://code.google.com/p/android/issues/detail?id=5141
      if (this._android && this._android <= 2.1) {
@@ -420,9 +426,13 @@
      /**
       * Make the image from Canvas if the browser supports Data URI.
       */
-     Drawing.prototype.makeImage = function () {
+     Drawing.prototype.makeImage = function (str) {
        if (this._bIsPainted) {
-         _safeSetDataURI.call(this, _onMakeImage);
+         if (typeof (str)!='undefined'&&str!=''){
+           _safeSetDataURI.call(this, _onMakeImage2);
+         }else {
+           _safeSetDataURI.call(this, _onMakeImage);
+         }
        }
      };
        
@@ -578,13 +588,13 @@
     * 
     * @param {String} sText link data
     */
-   QRCode.prototype.makeCode = function (sText) {
+   QRCode.prototype.makeCode = function (sText,str) {
      this._oQRCode = new QRCodeModel(_getTypeNumber(sText, this._htOption.correctLevel), this._htOption.correctLevel);
      this._oQRCode.addData(sText);
      this._oQRCode.make();
      this._el.title = sText;
      this._oDrawing.draw(this._oQRCode);			
-     this.makeImage();
+     this.makeImage(str);
    };
    
    /**
@@ -594,9 +604,9 @@
     * 
     * @private
     */
-   QRCode.prototype.makeImage = function () {
+   QRCode.prototype.makeImage = function (str) {
      if (typeof this._oDrawing.makeImage == "function" && (!this._android || this._android >= 3)) {
-       this._oDrawing.makeImage();
+       this._oDrawing.makeImage(str);
      }
    };
    
