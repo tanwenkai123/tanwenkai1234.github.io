@@ -52,7 +52,6 @@
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
-
                     const obj = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
                     if (obj) {
                         const loc = obj.location;
@@ -60,7 +59,8 @@
                         this.draw(loc.topRightCorner, loc.bottomRightCorner);
                         this.draw(loc.bottomRightCorner, loc.bottomLeftCorner);
                         this.draw(loc.bottomLeftCorner, loc.topLeftCorner);
-                        if (this.result != obj.data) {
+                        if ('' != obj.data&&'undefined' != typeof (obj.data)) {
+                        // if (this.result != obj.data) {
                             this.audio.play();
                             this.cance();
                             this.seuccess(obj);
