@@ -42,7 +42,6 @@
             // setTimeout(() => {
             // }, 1000);
             this.cvsele.style.display = "none";
-            this.video.parentNode.removeChild(this.video);   //删
         };
 
         untie() {
