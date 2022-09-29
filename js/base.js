@@ -38,12 +38,11 @@
 
         cance() {
             this.isAnimation = false;
-            cancelAnimationFrame(this.timer);
-            // setTimeout(() => {
-            // }, 1000);
-            this.cvsele.style.display = "none";
-            this.video.pause()
-            this.cvsele.height=this.cvsele.height;
+//             cancelAnimationFrame(this.timer);
+            setTimeout(() => {
+                this.cvsele.style.display = "none";
+            }, 1000);
+            
         };
 
         untie() {
