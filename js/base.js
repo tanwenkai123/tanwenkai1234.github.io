@@ -39,10 +39,9 @@
         cance() {
             this.isAnimation = false;
             cancelAnimationFrame(this.timer);
-            setTimeout(() => {
-                this.cvsele.style.display = "none";
-                console.log(999)
-            }, 1000);
+            // setTimeout(() => {
+            // }, 1000);
+            this.cvsele.style.display = "none";
         };
 
         untie() {
@@ -53,7 +52,7 @@
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
-                    document.querySelector('#imgurl').src = img;
+                    // document.querySelector('#imgurl').src = img;
                     const obj = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
                     if (obj) {
                         const loc = obj.location;
