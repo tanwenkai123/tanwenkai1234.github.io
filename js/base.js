@@ -43,6 +43,7 @@
             // }, 1000);
             this.cvsele.style.display = "none";
             this.video.pause()
+            this.cvsele.height=this.cvsele.height;
         };
 
         untie() {
