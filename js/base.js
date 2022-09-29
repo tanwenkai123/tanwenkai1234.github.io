@@ -53,6 +53,7 @@
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
+                    document.querySelector('#imgurl').src = img;
                     const obj = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
                     if (obj) {
                         const loc = obj.location;
