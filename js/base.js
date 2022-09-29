@@ -42,17 +42,14 @@
             // setTimeout(() => {
             // }, 1000);
             this.cvsele.style.display = "none";
+            this.video.parentNode.removeChild(this.video);   //删
         };
 
         untie() {
             if (this.video.readyState === this.video.HAVE_ENOUGH_DATA) {
                 const { videoWidth, videoHeight } = this.video;
-                console.log(videoWidth)
-                console.log(videoHeight)
-                this.cvsele.width = 320;
-                this.cvsele.height = 240;
-                // this.cvsele.width = videoWidth;
-                // this.cvsele.height = videoHeight;
+                this.cvsele.width = videoWidth;
+                this.cvsele.height = videoHeight;
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
