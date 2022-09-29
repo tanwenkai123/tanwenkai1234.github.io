@@ -42,6 +42,7 @@
             // setTimeout(() => {
             // }, 1000);
             this.cvsele.style.display = "none";
+            this.video.pause()
         };
 
         untie() {
