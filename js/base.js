@@ -47,12 +47,15 @@
         untie() {
             if (this.video.readyState === this.video.HAVE_ENOUGH_DATA) {
                 const { videoWidth, videoHeight } = this.video;
-                this.cvsele.width = videoWidth;
-                this.cvsele.height = videoHeight;
+                console.log(videoWidth)
+                console.log(videoHeight)
+                this.cvsele.width = 320;
+                this.cvsele.height = 240;
+                // this.cvsele.width = videoWidth;
+                // this.cvsele.height = videoHeight;
                 this.canvas.drawImage(this.video, 0, 0, videoWidth, videoHeight);
                 try {
                     const img = this.canvas.getImageData(0, 0, videoWidth, videoHeight);
-                    // document.querySelector('#imgurl').src = img;
                     const obj = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
                     if (obj) {
                         const loc = obj.location;
